@@ -1,9 +1,6 @@
 from flask_model import *
 import unittest
 
-class TestOpenTableScraping(unittest.TestCase):
-    pass
-
 class TestRestaurantClass(unittest.TestCase):
     def test_init(self):
         new = Restaurant('Savas','Casual Dining','Ann Arbor','https://www.opentable.com/savas?page=1','216 State St. Ann Arbor, MI 48109','(734) 623-2233','4.4',42.279683,-83.741184,10)
@@ -71,8 +68,6 @@ class TestDistanceGeocoding(unittest.TestCase):
         distance = round(distance,2)
         self.assertEqual(distance,2.65)
 
-class TestInformationGathering(unittest.TestCase):
-    pass
 
 if __name__ == '__main__':
     unittest.main()
