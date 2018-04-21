@@ -42,39 +42,6 @@ try:
 except:
     CACHE_DICT3 = {}
 
-# Restaurant class to temporarily set up restaurant data
-class Restaurant:
-    def __init__(self, name,food_type,city,url,address,phone_number,rating,lat,lng,distance):
-        self.name = name
-        self.food_type = food_type
-        self.city = city
-        self.url = url
-        self.address = address
-        self.phone_number = phone_number
-        self.rating = rating
-        self.lat = lat
-        self.lng = lng
-        self.distance = distance
-
-
-    def __str__(self):
-        return_string = self.name + ' - ' + self.food_type + ' - ' + ' Rating: ' + self.rating + '\nLat/Long: ' + str(self.lat) + ' ' + str(self.lng)
-        return return_string
-
-# Menu Item class to emporaryily holding to setup menu items ,
-class Menu_Item:
-
-    def __init__(self,name,price,type,desc,restaurant_name):
-        self.name = name
-        self.price = price
-        self.desc = desc
-        self.type = type
-        self.restaurant_name = restaurant_name
-
-    def __str__(self):
-        return_string =  self.type + '\n' + str(self.name) + ' ' + str(self.price) + '\n' + str(self.desc)
-        return return_string
-
 #cache function for Google Geocoding API
 def get_lat_long_using_cache(url):
     unique_ident = url
@@ -181,6 +148,39 @@ def create_opentable_web_url(search_term,num_guests):
             return_string += '+'
             count += 1
     return return_string
+
+# Restaurant class to temporarily set up restaurant data
+class Restaurant:
+    def __init__(self, name,food_type,city,url,address,phone_number,rating,lat,lng,distance):
+        self.name = name
+        self.food_type = food_type
+        self.city = city
+        self.url = url
+        self.address = address
+        self.phone_number = phone_number
+        self.rating = rating
+        self.lat = lat
+        self.lng = lng
+        self.distance = distance
+
+
+    def __str__(self):
+        return_string = self.name + ' - ' + self.food_type + ' - ' + ' Rating: ' + self.rating
+        return return_string
+
+# Menu Item class to emporaryily holding to setup menu items ,
+class Menu_Item:
+
+    def __init__(self,name,price,type,desc,restaurant_name):
+        self.name = name
+        self.price = price
+        self.desc = desc
+        self.type = type
+        self.restaurant_name = restaurant_name
+
+    def __str__(self):
+        return_string =  self.type + '\n' + str(self.name) + ' ' + str(self.price) + '\n' + str(self.desc)
+        return return_string
 
 # Get relevant restaurant info by scraping OpenTable site
 def get_opentable_restaurant_info(search_term,num_guests,user_location):
