@@ -67,7 +67,7 @@ def get_lat_and_long(search_term):
         if count != total:
             url += '+'
             count += 1
-    google_api_key = 'AIzaSyCVzDr6FvLoPiDcRm-G5zs-m6rRrkvIYOc'
+    google_api_key = secrets.google_api_key
     url += '&key=' + google_api_key
     response_text = get_lat_long_using_cache(url)
     response_list = response_text['results'][0]['geometry']['location']
@@ -97,7 +97,7 @@ def get_api_data_using_cache(menu_item):
         extended_url = baseurl + extension
         response = requests.get(extended_url,
           headers={
-            "X-Mashape-Key": "w00JkFPa8qmshdjSxVqHe7l3Fe52p1VU6o1jsnCXZ9abODJlQS",
+            "X-Mashape-Key": secrets.spoontacular_key
             "X-Mashape-Host": "spoonacular-recipe-food-nutrition-v1.p.mashape.com"
           }
         )
